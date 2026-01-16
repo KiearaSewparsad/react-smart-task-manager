@@ -1,13 +1,13 @@
-import { useState } from "react";
-import TaskInput from "./components/TaskInput";
-import TaskList from './components/TaskList';
+import { useState } from "react"
+import TaskInput from "./components/TaskInput"
+import TaskList from "./components/TaskList"
 
-function App()
-{
+function App() {
   const [tasks, setTasks] = useState([])
 
-  const addTask = (task) => {
-    setTasks([...tasks, task])
+  const addTask = (text) => {
+    if (!text.trim()) return
+    setTasks([...tasks, { text, completed: false }])
   }
 
   return (
@@ -15,7 +15,6 @@ function App()
       <h1>Smart Task Manager</h1>
       <p>Total Tasks: {tasks.length}</p>
 
-      
       <TaskInput onAdd={addTask} />
       <TaskList tasks={tasks} setTasks={setTasks} />
     </div>
