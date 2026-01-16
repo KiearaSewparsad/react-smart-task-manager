@@ -18,7 +18,6 @@ function TaskList({ tasks, setTasks, filter }) {
   const handleDelete = (index) => {
     setTasks(tasks.filter((_, i) => i !== index))
   }
-
   return (
     <ul>
       {filteredTasks.map((task, index) => (
